@@ -1,0 +1,1316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AccetManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ASSET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETTYPEID" Type="int" Nullable="false" />
+          <Property Name="LOCATIONID" Type="int" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRAND" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MODEL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="STATUSID" Type="int" Nullable="false" />
+          <Property Name="CONDITIONID" Type="int" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DUEDATE" Type="date" Nullable="false" />
+          <Property Name="NOTES" Type="varchar(max)" Nullable="false" />
+          <Property Name="ASSETIMAGEID" Type="int" Nullable="false" />
+          <Property Name="CHECKOUTDATE" Type="date" Nullable="false" />
+          <Property Name="CHECKOUTCOMMENT" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMPID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RECEIVEDDATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSETIMAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ASSETIMAGEID" Type="int" Nullable="false" />
+          <Property Name="ASSETID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Filepath" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSETTYPE">
+          <Key>
+            <PropertyRef Name="ASSETTYPEID" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ASSETTYPEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ATTATCHMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FILEPATH" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKOUTIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COMMENT" Type="varchar(max)" Nullable="false" />
+          <Property Name="CHECKOUTDATE" Type="date" Nullable="false" />
+          <Property Name="STATUSID" Type="int" Nullable="false" />
+          <Property Name="LOCATIONID" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar(max)" Nullable="false" />
+          <Property Name="CHECKINDATE" Type="date" Nullable="false" />
+          <Property Name="DUEDATE" Type="date" Nullable="false" />
+          <Property Name="COMPNAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONDITION">
+          <Key>
+            <PropertyRef Name="CONDITIONID" />
+          </Key>
+          <Property Name="CONDITIONNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CONDITIONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Depreciation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepresiationName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEEIMAGE">
+          <Key>
+            <PropertyRef Name="IMAGEID" />
+          </Key>
+          <Property Name="FILEPATH" Type="varchar(max)" Nullable="false" />
+          <Property Name="EMPIMAGEID" Type="varchar(max)" Nullable="false" />
+          <Property Name="IMAGEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEESTATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMPSTATUSNAME" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEETABLE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMPID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="WORKPHONE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MOBILEPHONE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="STATUSID" Type="int" Nullable="false" />
+          <Property Name="GROUPID" Type="int" Nullable="false" />
+          <Property Name="TITLEID" Type="int" Nullable="false" />
+          <Property Name="IMAGEID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FINANCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VENDORNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PONO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RECOVERYPERIOD" Type="int" Nullable="false" />
+          <Property Name="PURCHASEPRICE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MARKETVALUE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SCRAPEVALUE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DEPRECIATIONID" Type="int" Nullable="false" />
+          <Property Name="PURCHASEDATE" Type="date" Nullable="false" />
+          <Property Name="INSERVICEDATE" Type="date" Nullable="false" />
+          <Property Name="WARRANTYEND" Type="date" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="LOCATIONID" />
+          </Key>
+          <Property Name="LOCATIONNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LOCATIONID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONGROUP">
+          <Key>
+            <PropertyRef Name="GROUPID" />
+          </Key>
+          <Property Name="GROUPNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GROUPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONROLE">
+          <Key>
+            <PropertyRef Name="TITLEID" />
+          </Key>
+          <Property Name="TITLE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TITLEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICETABLE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LABORCOST" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PARTSCOST" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TAX" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="COMPLETIONDATE" Type="date" Nullable="false" />
+          <Property Name="NEXTDUEDATE" Type="date" Nullable="false" />
+          <Property Name="SERVICEDBY" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="SERVICETYPEID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICETYPE">
+          <Key>
+            <PropertyRef Name="SERVICETYPEID" />
+          </Key>
+          <Property Name="SERVICENAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SERVICETYPEID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="STATUSID" />
+          </Key>
+          <Property Name="STATUSNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="STATUSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="VENDORNO" />
+          </Key>
+          <Property Name="VENDORNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="VENDORNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PHONENO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WEBSITE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CONTACTNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="POSTALADDRESS" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="TOWN" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.RPTALLASSETS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RPTALLASSETS">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="STATUSNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRAND" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DUEDATE" Type="date" Nullable="false" />
+          <Property Name="NOTES" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.RPTASSIGNEDALLASSETS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RPTASSIGNEDALLASSETS">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="STATUSNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRAND" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DUEDATE" Type="date" Nullable="false" />
+          <Property Name="NOTES" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.RPTUNASSIGNEDALLASSETS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RPTUNASSIGNEDALLASSETS">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="STATUSNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRAND" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DUEDATE" Type="date" Nullable="false" />
+          <Property Name="NOTES" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.RPTVIEWALLEMP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RPTVIEWALLEMP">
+          <Key>
+            <PropertyRef Name="EMPID" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="MOBILEPHONE" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="EMPSTATUSNAME" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="EMPNAME" />
+          </Key>
+          <Property Name="EMPID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MOBILEPHONE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMPSTATUSNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="201" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.VIEWALLASSETS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEWALLASSETS">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="STATUSNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BRAND" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DUEDATE" Type="date" Nullable="false" />
+          <Property Name="NOTES" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.VIEWALLEMP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEWALLEMP">
+          <Key>
+            <PropertyRef Name="EMPID" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="MOBILEPHONE" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="EMPSTATUSNAME" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="EMPNAME" />
+          </Key>
+          <Property Name="EMPID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MOBILEPHONE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EMPSTATUSNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="EMPNAME" Type="varchar" MaxLength="201" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.VIEWCHECKOUT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEWCHECKOUT">
+          <Key>
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="FULLDESCRIPTION" />
+            <PropertyRef Name="TIMESTAMP" />
+            <PropertyRef Name="COMPUTERNAME" />
+            <PropertyRef Name="PERSONALNO" />
+          </Key>
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ADDITIONALINFORMATION" Type="varchar" MaxLength="179" />
+          <Property Name="FULLDESCRIPTION" Type="varchar" MaxLength="377" Nullable="false" />
+          <Property Name="TIMESTAMP" Type="date" Nullable="false" />
+          <Property Name="COMPUTERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PERSONALNO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.VIEWCHECKOUTsearch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEWCHECKOUTsearch">
+          <Key>
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="ASSETNO" />
+          </Key>
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ADDITIONALINFORMATION" Type="varchar" MaxLength="179" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AccetManagement.dbo.VIEWEMPCHECKOUTLIST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEWEMPCHECKOUTLIST">
+          <Key>
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="CHECKOUTDATE" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="EMPID" />
+          </Key>
+          <Property Name="ASSETNO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CHECKOUTDATE" Type="date" Nullable="false" />
+          <Property Name="DUEDATE" Type="date" Nullable="false" />
+          <Property Name="EMPID" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AccetManagementModelStoreContainer">
+          <EntitySet Name="ASSET" EntityType="Self.ASSET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ASSETIMAGE" EntityType="Self.ASSETIMAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ASSETTYPE" EntityType="Self.ASSETTYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ATTATCHMENT" EntityType="Self.ATTATCHMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHECKOUTIN" EntityType="Self.CHECKOUTIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONDITION" EntityType="Self.CONDITION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Depreciation" EntityType="Self.Depreciation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEEIMAGE" EntityType="Self.EMPLOYEEIMAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEESTATUS" EntityType="Self.EMPLOYEESTATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEETABLE" EntityType="Self.EMPLOYEETABLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FINANCE" EntityType="Self.FINANCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOCATION" EntityType="Self.LOCATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORGANIZATIONGROUP" EntityType="Self.ORGANIZATIONGROUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORGANIZATIONROLE" EntityType="Self.ORGANIZATIONROLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICETABLE" EntityType="Self.SERVICETABLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SERVICETYPE" EntityType="Self.SERVICETYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENDOR" EntityType="Self.VENDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RPTALLASSETS" EntityType="Self.RPTALLASSETS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RPTALLASSETS].[ASSETTYPE] AS [ASSETTYPE], 
+    [RPTALLASSETS].[STATUSNAME] AS [STATUSNAME], 
+    [RPTALLASSETS].[LOCATIONNAME] AS [LOCATIONNAME], 
+    [RPTALLASSETS].[CONDITIONNAME] AS [CONDITIONNAME], 
+    [RPTALLASSETS].[ASSETNO] AS [ASSETNO], 
+    [RPTALLASSETS].[DESCRIPTION] AS [DESCRIPTION], 
+    [RPTALLASSETS].[MANUFACTURER] AS [MANUFACTURER], 
+    [RPTALLASSETS].[BRAND] AS [BRAND], 
+    [RPTALLASSETS].[SERIALNUMBER] AS [SERIALNUMBER], 
+    [RPTALLASSETS].[EMPNAME] AS [EMPNAME], 
+    [RPTALLASSETS].[DUEDATE] AS [DUEDATE], 
+    [RPTALLASSETS].[NOTES] AS [NOTES]
+    FROM [dbo].[RPTALLASSETS] AS [RPTALLASSETS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RPTASSIGNEDALLASSETS" EntityType="Self.RPTASSIGNEDALLASSETS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RPTASSIGNEDALLASSETS].[ASSETTYPE] AS [ASSETTYPE], 
+    [RPTASSIGNEDALLASSETS].[STATUSNAME] AS [STATUSNAME], 
+    [RPTASSIGNEDALLASSETS].[LOCATIONNAME] AS [LOCATIONNAME], 
+    [RPTASSIGNEDALLASSETS].[CONDITIONNAME] AS [CONDITIONNAME], 
+    [RPTASSIGNEDALLASSETS].[ASSETNO] AS [ASSETNO], 
+    [RPTASSIGNEDALLASSETS].[DESCRIPTION] AS [DESCRIPTION], 
+    [RPTASSIGNEDALLASSETS].[MANUFACTURER] AS [MANUFACTURER], 
+    [RPTASSIGNEDALLASSETS].[BRAND] AS [BRAND], 
+    [RPTASSIGNEDALLASSETS].[SERIALNUMBER] AS [SERIALNUMBER], 
+    [RPTASSIGNEDALLASSETS].[EMPNAME] AS [EMPNAME], 
+    [RPTASSIGNEDALLASSETS].[DUEDATE] AS [DUEDATE], 
+    [RPTASSIGNEDALLASSETS].[NOTES] AS [NOTES]
+    FROM [dbo].[RPTASSIGNEDALLASSETS] AS [RPTASSIGNEDALLASSETS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RPTUNASSIGNEDALLASSETS" EntityType="Self.RPTUNASSIGNEDALLASSETS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RPTUNASSIGNEDALLASSETS].[ASSETTYPE] AS [ASSETTYPE], 
+    [RPTUNASSIGNEDALLASSETS].[STATUSNAME] AS [STATUSNAME], 
+    [RPTUNASSIGNEDALLASSETS].[LOCATIONNAME] AS [LOCATIONNAME], 
+    [RPTUNASSIGNEDALLASSETS].[CONDITIONNAME] AS [CONDITIONNAME], 
+    [RPTUNASSIGNEDALLASSETS].[ASSETNO] AS [ASSETNO], 
+    [RPTUNASSIGNEDALLASSETS].[DESCRIPTION] AS [DESCRIPTION], 
+    [RPTUNASSIGNEDALLASSETS].[MANUFACTURER] AS [MANUFACTURER], 
+    [RPTUNASSIGNEDALLASSETS].[BRAND] AS [BRAND], 
+    [RPTUNASSIGNEDALLASSETS].[SERIALNUMBER] AS [SERIALNUMBER], 
+    [RPTUNASSIGNEDALLASSETS].[EMPNAME] AS [EMPNAME], 
+    [RPTUNASSIGNEDALLASSETS].[DUEDATE] AS [DUEDATE], 
+    [RPTUNASSIGNEDALLASSETS].[NOTES] AS [NOTES]
+    FROM [dbo].[RPTUNASSIGNEDALLASSETS] AS [RPTUNASSIGNEDALLASSETS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RPTVIEWALLEMP" EntityType="Self.RPTVIEWALLEMP" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RPTVIEWALLEMP].[EMPID] AS [EMPID], 
+    [RPTVIEWALLEMP].[EMAIL] AS [EMAIL], 
+    [RPTVIEWALLEMP].[MOBILEPHONE] AS [MOBILEPHONE], 
+    [RPTVIEWALLEMP].[TITLE] AS [TITLE], 
+    [RPTVIEWALLEMP].[EMPSTATUSNAME] AS [EMPSTATUSNAME], 
+    [RPTVIEWALLEMP].[ID] AS [ID], 
+    [RPTVIEWALLEMP].[EMPNAME] AS [EMPNAME]
+    FROM [dbo].[RPTVIEWALLEMP] AS [RPTVIEWALLEMP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VIEWALLASSETS" EntityType="Self.VIEWALLASSETS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VIEWALLASSETS].[ASSETTYPE] AS [ASSETTYPE], 
+    [VIEWALLASSETS].[STATUSNAME] AS [STATUSNAME], 
+    [VIEWALLASSETS].[LOCATIONNAME] AS [LOCATIONNAME], 
+    [VIEWALLASSETS].[CONDITIONNAME] AS [CONDITIONNAME], 
+    [VIEWALLASSETS].[ASSETNO] AS [ASSETNO], 
+    [VIEWALLASSETS].[DESCRIPTION] AS [DESCRIPTION], 
+    [VIEWALLASSETS].[MANUFACTURER] AS [MANUFACTURER], 
+    [VIEWALLASSETS].[BRAND] AS [BRAND], 
+    [VIEWALLASSETS].[SERIALNUMBER] AS [SERIALNUMBER], 
+    [VIEWALLASSETS].[EMPNAME] AS [EMPNAME], 
+    [VIEWALLASSETS].[DUEDATE] AS [DUEDATE], 
+    [VIEWALLASSETS].[NOTES] AS [NOTES]
+    FROM [dbo].[VIEWALLASSETS] AS [VIEWALLASSETS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VIEWALLEMP" EntityType="Self.VIEWALLEMP" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VIEWALLEMP].[EMPID] AS [EMPID], 
+    [VIEWALLEMP].[EMAIL] AS [EMAIL], 
+    [VIEWALLEMP].[MOBILEPHONE] AS [MOBILEPHONE], 
+    [VIEWALLEMP].[TITLE] AS [TITLE], 
+    [VIEWALLEMP].[EMPSTATUSNAME] AS [EMPSTATUSNAME], 
+    [VIEWALLEMP].[ID] AS [ID], 
+    [VIEWALLEMP].[EMPNAME] AS [EMPNAME]
+    FROM [dbo].[VIEWALLEMP] AS [VIEWALLEMP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VIEWCHECKOUT" EntityType="Self.VIEWCHECKOUT" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VIEWCHECKOUT].[DESCRIPTION] AS [DESCRIPTION], 
+    [VIEWCHECKOUT].[ASSETNO] AS [ASSETNO], 
+    [VIEWCHECKOUT].[ADDITIONALINFORMATION] AS [ADDITIONALINFORMATION], 
+    [VIEWCHECKOUT].[FULLDESCRIPTION] AS [FULLDESCRIPTION], 
+    [VIEWCHECKOUT].[TIMESTAMP] AS [TIMESTAMP], 
+    [VIEWCHECKOUT].[COMPUTERNAME] AS [COMPUTERNAME], 
+    [VIEWCHECKOUT].[PERSONALNO] AS [PERSONALNO]
+    FROM [dbo].[VIEWCHECKOUT] AS [VIEWCHECKOUT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VIEWCHECKOUTsearch" EntityType="Self.VIEWCHECKOUTsearch" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VIEWCHECKOUTsearch].[DESCRIPTION] AS [DESCRIPTION], 
+    [VIEWCHECKOUTsearch].[ASSETNO] AS [ASSETNO], 
+    [VIEWCHECKOUTsearch].[ADDITIONALINFORMATION] AS [ADDITIONALINFORMATION]
+    FROM [dbo].[VIEWCHECKOUTsearch] AS [VIEWCHECKOUTsearch]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VIEWEMPCHECKOUTLIST" EntityType="Self.VIEWEMPCHECKOUTLIST" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [VIEWEMPCHECKOUTLIST].[ASSETNO] AS [ASSETNO], 
+    [VIEWEMPCHECKOUTLIST].[DESCRIPTION] AS [DESCRIPTION], 
+    [VIEWEMPCHECKOUTLIST].[CHECKOUTDATE] AS [CHECKOUTDATE], 
+    [VIEWEMPCHECKOUTLIST].[DUEDATE] AS [DUEDATE], 
+    [VIEWEMPCHECKOUTLIST].[EMPID] AS [EMPID]
+    FROM [dbo].[VIEWEMPCHECKOUTLIST] AS [VIEWEMPCHECKOUTLIST]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccetManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ASSET">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETTYPEID" Type="Int32" Nullable="false" />
+          <Property Name="LOCATIONID" Type="Int32" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUSID" Type="Int32" Nullable="false" />
+          <Property Name="CONDITIONID" Type="Int32" Nullable="false" />
+          <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETIMAGEID" Type="Int32" Nullable="false" />
+          <Property Name="CHECKOUTDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CHECKOUTCOMMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RECEIVEDDATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ASSETIMAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ASSETIMAGEID" Type="Int32" Nullable="false" />
+          <Property Name="ASSETID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Filepath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ASSETTYPE">
+          <Key>
+            <PropertyRef Name="ASSETTYPEID" />
+          </Key>
+          <Property Name="ASSETTYPE1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ATTATCHMENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILEPATH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKOUTIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CHECKOUTDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="STATUSID" Type="Int32" Nullable="false" />
+          <Property Name="LOCATIONID" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CHECKINDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="COMPNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONDITION">
+          <Key>
+            <PropertyRef Name="CONDITIONID" />
+          </Key>
+          <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONDITIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Depreciation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepresiationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEESTATU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPSTATUSNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEETABLE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WORKPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOBILEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUSID" Type="Int32" Nullable="false" />
+          <Property Name="GROUPID" Type="Int32" Nullable="false" />
+          <Property Name="TITLEID" Type="Int32" Nullable="false" />
+          <Property Name="IMAGEID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FINANCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="VENDORNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PONO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RECOVERYPERIOD" Type="Int32" Nullable="false" />
+          <Property Name="PURCHASEPRICE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MARKETVALUE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="SCRAPEVALUE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DEPRECIATIONID" Type="Int32" Nullable="false" />
+          <Property Name="PURCHASEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="INSERVICEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="WARRANTYEND" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="LOCATION">
+          <Key>
+            <PropertyRef Name="LOCATIONID" />
+          </Key>
+          <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOCATIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONGROUP">
+          <Key>
+            <PropertyRef Name="GROUPID" />
+          </Key>
+          <Property Name="GROUPNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GROUPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ORGANIZATIONROLE">
+          <Key>
+            <PropertyRef Name="TITLEID" />
+          </Key>
+          <Property Name="TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITLEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="SERVICETABLE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LABORCOST" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PARTSCOST" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="TAX" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="COMPLETIONDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NEXTDUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SERVICEDBY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERVICETYPEID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICETYPE">
+          <Key>
+            <PropertyRef Name="SERVICETYPEID" />
+          </Key>
+          <Property Name="SERVICENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERVICETYPEID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="STATUSID" />
+          </Key>
+          <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="VENDORNO" />
+          </Key>
+          <Property Name="VENDORNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VENDORNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PHONENO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WEBSITE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTACTNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="POSTALADDRESS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TOWN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RPTALLASSET">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RPTASSIGNEDALLASSET">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RPTUNASSIGNEDALLASSET">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VIEWALLASSET">
+          <Key>
+            <PropertyRef Name="ASSETTYPE" />
+            <PropertyRef Name="STATUSNAME" />
+            <PropertyRef Name="LOCATIONNAME" />
+            <PropertyRef Name="CONDITIONNAME" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="MANUFACTURER" />
+            <PropertyRef Name="BRAND" />
+            <PropertyRef Name="SERIALNUMBER" />
+            <PropertyRef Name="EMPNAME" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="NOTES" />
+          </Key>
+          <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VIEWALLEMP">
+          <Key>
+            <PropertyRef Name="EMPID" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="MOBILEPHONE" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="EMPSTATUSNAME" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="EMPNAME" />
+          </Key>
+          <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MOBILEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPSTATUSNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EMPNAME" Type="String" MaxLength="201" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VIEWCHECKOUT">
+          <Key>
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="FULLDESCRIPTION" />
+            <PropertyRef Name="TIMESTAMP" />
+            <PropertyRef Name="COMPUTERNAME" />
+            <PropertyRef Name="PERSONALNO" />
+          </Key>
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDITIONALINFORMATION" Type="String" MaxLength="179" FixedLength="false" Unicode="false" />
+          <Property Name="FULLDESCRIPTION" Type="String" MaxLength="377" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIMESTAMP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="COMPUTERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PERSONALNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VIEWCHECKOUTsearch">
+          <Key>
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="ASSETNO" />
+          </Key>
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDITIONALINFORMATION" Type="String" MaxLength="179" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VIEWEMPCHECKOUTLIST">
+          <Key>
+            <PropertyRef Name="ASSETNO" />
+            <PropertyRef Name="DESCRIPTION" />
+            <PropertyRef Name="CHECKOUTDATE" />
+            <PropertyRef Name="DUEDATE" />
+            <PropertyRef Name="EMPID" />
+          </Key>
+          <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CHECKOUTDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AccetManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ASSETs" EntityType="Self.ASSET" />
+          <EntitySet Name="ASSETIMAGEs" EntityType="Self.ASSETIMAGE" />
+          <EntitySet Name="ASSETTYPEs" EntityType="Self.ASSETTYPE" />
+          <EntitySet Name="ATTATCHMENTs" EntityType="Self.ATTATCHMENT" />
+          <EntitySet Name="CHECKOUTINs" EntityType="Self.CHECKOUTIN" />
+          <EntitySet Name="CONDITIONs" EntityType="Self.CONDITION" />
+          <EntitySet Name="Depreciations" EntityType="Self.Depreciation" />
+          <EntitySet Name="EMPLOYEESTATUS" EntityType="Self.EMPLOYEESTATU" />
+          <EntitySet Name="EMPLOYEETABLEs" EntityType="Self.EMPLOYEETABLE" />
+          <EntitySet Name="FINANCEs" EntityType="Self.FINANCE" />
+          <EntitySet Name="LOCATIONs" EntityType="Self.LOCATION" />
+          <EntitySet Name="ORGANIZATIONGROUPs" EntityType="Self.ORGANIZATIONGROUP" />
+          <EntitySet Name="ORGANIZATIONROLEs" EntityType="Self.ORGANIZATIONROLE" />
+          <EntitySet Name="SERVICETABLEs" EntityType="Self.SERVICETABLE" />
+          <EntitySet Name="SERVICETYPEs" EntityType="Self.SERVICETYPE" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" />
+          <EntitySet Name="VENDORs" EntityType="Self.VENDOR" />
+          <EntitySet Name="RPTALLASSETS" EntityType="Self.RPTALLASSET" />
+          <EntitySet Name="RPTASSIGNEDALLASSETS" EntityType="Self.RPTASSIGNEDALLASSET" />
+          <EntitySet Name="RPTUNASSIGNEDALLASSETS" EntityType="Self.RPTUNASSIGNEDALLASSET" />
+          <EntitySet Name="VIEWALLASSETS" EntityType="Self.VIEWALLASSET" />
+          <EntitySet Name="VIEWALLEMPs" EntityType="Self.VIEWALLEMP" />
+          <EntitySet Name="VIEWCHECKOUTs" EntityType="Self.VIEWCHECKOUT" />
+          <EntitySet Name="VIEWCHECKOUTsearches" EntityType="Self.VIEWCHECKOUTsearch" />
+          <EntitySet Name="VIEWEMPCHECKOUTLISTs" EntityType="Self.VIEWEMPCHECKOUTLIST" />
+          <EntitySet Name="RPTVIEWALLEMPs" EntityType="AccetManagementModel.RPTVIEWALLEMP" />
+          <EntitySet Name="EMPLOYEEIMAGEs" EntityType="AccetManagementModel.EMPLOYEEIMAGE" />
+        </EntityContainer>
+        <EntityType Name="RPTVIEWALLEMP">
+          <Key>
+            <PropertyRef Name="EMPID" />
+            <PropertyRef Name="EMAIL" />
+            <PropertyRef Name="MOBILEPHONE" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="EMPSTATUSNAME" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="EMPNAME" />
+          </Key>
+          <Property Name="EMPID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILEPHONE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EMPSTATUSNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EMPNAME" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEEIMAGE">
+          <Key>
+            <PropertyRef Name="IMAGEID" />
+          </Key>
+          <Property Name="FILEPATH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMPIMAGEID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccetManagementModelStoreContainer" CdmEntityContainer="AccetManagementEntities">
+          <EntitySetMapping Name="ASSETs">
+            <EntityTypeMapping TypeName="AccetManagementModel.ASSET">
+              <MappingFragment StoreEntitySet="ASSET">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ASSETTYPEID" ColumnName="ASSETTYPEID" />
+                <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+                <ScalarProperty Name="CONDITIONID" ColumnName="CONDITIONID" />
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+                <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+                <ScalarProperty Name="ASSETIMAGEID" ColumnName="ASSETIMAGEID" />
+                <ScalarProperty Name="CHECKOUTDATE" ColumnName="CHECKOUTDATE" />
+                <ScalarProperty Name="CHECKOUTCOMMENT" ColumnName="CHECKOUTCOMMENT" />
+                <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+                <ScalarProperty Name="RECEIVEDDATE" ColumnName="RECEIVEDDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSETIMAGEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.ASSETIMAGE">
+              <MappingFragment StoreEntitySet="ASSETIMAGE">
+                <ScalarProperty Name="ASSETIMAGEID" ColumnName="ASSETIMAGEID" />
+                <ScalarProperty Name="ASSETID" ColumnName="ASSETID" />
+                <ScalarProperty Name="Filepath" ColumnName="Filepath" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSETTYPEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.ASSETTYPE">
+              <MappingFragment StoreEntitySet="ASSETTYPE">
+                <ScalarProperty Name="ASSETTYPE1" ColumnName="ASSETTYPE" />
+                <ScalarProperty Name="ASSETTYPEID" ColumnName="ASSETTYPEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ATTATCHMENTs">
+            <EntityTypeMapping TypeName="AccetManagementModel.ATTATCHMENT">
+              <MappingFragment StoreEntitySet="ATTATCHMENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="FILEPATH" ColumnName="FILEPATH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHECKOUTINs">
+            <EntityTypeMapping TypeName="AccetManagementModel.CHECKOUTIN">
+              <MappingFragment StoreEntitySet="CHECKOUTIN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="CHECKOUTDATE" ColumnName="CHECKOUTDATE" />
+                <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+                <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CHECKINDATE" ColumnName="CHECKINDATE" />
+                <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+                <ScalarProperty Name="COMPNAME" ColumnName="COMPNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONDITIONs">
+            <EntityTypeMapping TypeName="AccetManagementModel.CONDITION">
+              <MappingFragment StoreEntitySet="CONDITION">
+                <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+                <ScalarProperty Name="CONDITIONID" ColumnName="CONDITIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Depreciations">
+            <EntityTypeMapping TypeName="AccetManagementModel.Depreciation">
+              <MappingFragment StoreEntitySet="Depreciation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DepresiationName" ColumnName="DepresiationName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEESTATUS">
+            <EntityTypeMapping TypeName="AccetManagementModel.EMPLOYEESTATU">
+              <MappingFragment StoreEntitySet="EMPLOYEESTATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMPSTATUSNAME" ColumnName="EMPSTATUSNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEETABLEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.EMPLOYEETABLE">
+              <MappingFragment StoreEntitySet="EMPLOYEETABLE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+                <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+                <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+                <ScalarProperty Name="WORKPHONE" ColumnName="WORKPHONE" />
+                <ScalarProperty Name="MOBILEPHONE" ColumnName="MOBILEPHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+                <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+                <ScalarProperty Name="TITLEID" ColumnName="TITLEID" />
+                <ScalarProperty Name="IMAGEID" ColumnName="IMAGEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FINANCEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.FINANCE">
+              <MappingFragment StoreEntitySet="FINANCE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="VENDORNO" ColumnName="VENDORNO" />
+                <ScalarProperty Name="PONO" ColumnName="PONO" />
+                <ScalarProperty Name="RECOVERYPERIOD" ColumnName="RECOVERYPERIOD" />
+                <ScalarProperty Name="PURCHASEPRICE" ColumnName="PURCHASEPRICE" />
+                <ScalarProperty Name="MARKETVALUE" ColumnName="MARKETVALUE" />
+                <ScalarProperty Name="SCRAPEVALUE" ColumnName="SCRAPEVALUE" />
+                <ScalarProperty Name="DEPRECIATIONID" ColumnName="DEPRECIATIONID" />
+                <ScalarProperty Name="PURCHASEDATE" ColumnName="PURCHASEDATE" />
+                <ScalarProperty Name="INSERVICEDATE" ColumnName="INSERVICEDATE" />
+                <ScalarProperty Name="WARRANTYEND" ColumnName="WARRANTYEND" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOCATIONs">
+            <EntityTypeMapping TypeName="AccetManagementModel.LOCATION">
+              <MappingFragment StoreEntitySet="LOCATION">
+                <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+                <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZATIONGROUPs">
+            <EntityTypeMapping TypeName="AccetManagementModel.ORGANIZATIONGROUP">
+              <MappingFragment StoreEntitySet="ORGANIZATIONGROUP">
+                <ScalarProperty Name="GROUPNAME" ColumnName="GROUPNAME" />
+                <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORGANIZATIONROLEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.ORGANIZATIONROLE">
+              <MappingFragment StoreEntitySet="ORGANIZATIONROLE">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="TITLEID" ColumnName="TITLEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICETABLEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.SERVICETABLE">
+              <MappingFragment StoreEntitySet="SERVICETABLE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="LABORCOST" ColumnName="LABORCOST" />
+                <ScalarProperty Name="PARTSCOST" ColumnName="PARTSCOST" />
+                <ScalarProperty Name="TAX" ColumnName="TAX" />
+                <ScalarProperty Name="COMPLETIONDATE" ColumnName="COMPLETIONDATE" />
+                <ScalarProperty Name="NEXTDUEDATE" ColumnName="NEXTDUEDATE" />
+                <ScalarProperty Name="SERVICEDBY" ColumnName="SERVICEDBY" />
+                <ScalarProperty Name="SERVICETYPEID" ColumnName="SERVICETYPEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICETYPEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.SERVICETYPE">
+              <MappingFragment StoreEntitySet="SERVICETYPE">
+                <ScalarProperty Name="SERVICENAME" ColumnName="SERVICENAME" />
+                <ScalarProperty Name="SERVICETYPEID" ColumnName="SERVICETYPEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS">
+            <EntityTypeMapping TypeName="AccetManagementModel.STATUS">
+              <MappingFragment StoreEntitySet="STATUS">
+                <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+                <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDORs">
+            <EntityTypeMapping TypeName="AccetManagementModel.VENDOR">
+              <MappingFragment StoreEntitySet="VENDOR">
+                <ScalarProperty Name="VENDORNAME" ColumnName="VENDORNAME" />
+                <ScalarProperty Name="VENDORNO" ColumnName="VENDORNO" />
+                <ScalarProperty Name="PHONENO" ColumnName="PHONENO" />
+                <ScalarProperty Name="WEBSITE" ColumnName="WEBSITE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CONTACTNAME" ColumnName="CONTACTNAME" />
+                <ScalarProperty Name="POSTALADDRESS" ColumnName="POSTALADDRESS" />
+                <ScalarProperty Name="TOWN" ColumnName="TOWN" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPTALLASSETS">
+            <EntityTypeMapping TypeName="AccetManagementModel.RPTALLASSET">
+              <MappingFragment StoreEntitySet="RPTALLASSETS">
+                <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+                <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+                <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+                <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+                <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPTASSIGNEDALLASSETS">
+            <EntityTypeMapping TypeName="AccetManagementModel.RPTASSIGNEDALLASSET">
+              <MappingFragment StoreEntitySet="RPTASSIGNEDALLASSETS">
+                <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+                <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+                <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+                <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+                <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPTUNASSIGNEDALLASSETS">
+            <EntityTypeMapping TypeName="AccetManagementModel.RPTUNASSIGNEDALLASSET">
+              <MappingFragment StoreEntitySet="RPTUNASSIGNEDALLASSETS">
+                <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+                <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+                <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+                <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+                <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEWALLASSETS">
+            <EntityTypeMapping TypeName="AccetManagementModel.VIEWALLASSET">
+              <MappingFragment StoreEntitySet="VIEWALLASSETS">
+                <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+                <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+                <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+                <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+                <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+                <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+                <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEWALLEMPs">
+            <EntityTypeMapping TypeName="AccetManagementModel.VIEWALLEMP">
+              <MappingFragment StoreEntitySet="VIEWALLEMP">
+                <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="MOBILEPHONE" ColumnName="MOBILEPHONE" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="EMPSTATUSNAME" ColumnName="EMPSTATUSNAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEWCHECKOUTs">
+            <EntityTypeMapping TypeName="AccetManagementModel.VIEWCHECKOUT">
+              <MappingFragment StoreEntitySet="VIEWCHECKOUT">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="ADDITIONALINFORMATION" ColumnName="ADDITIONALINFORMATION" />
+                <ScalarProperty Name="FULLDESCRIPTION" ColumnName="FULLDESCRIPTION" />
+                <ScalarProperty Name="TIMESTAMP" ColumnName="TIMESTAMP" />
+                <ScalarProperty Name="COMPUTERNAME" ColumnName="COMPUTERNAME" />
+                <ScalarProperty Name="PERSONALNO" ColumnName="PERSONALNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEWCHECKOUTsearches">
+            <EntityTypeMapping TypeName="AccetManagementModel.VIEWCHECKOUTsearch">
+              <MappingFragment StoreEntitySet="VIEWCHECKOUTsearch">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="ADDITIONALINFORMATION" ColumnName="ADDITIONALINFORMATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEWEMPCHECKOUTLISTs">
+            <EntityTypeMapping TypeName="AccetManagementModel.VIEWEMPCHECKOUTLIST">
+              <MappingFragment StoreEntitySet="VIEWEMPCHECKOUTLIST">
+                <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CHECKOUTDATE" ColumnName="CHECKOUTDATE" />
+                <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+                <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RPTVIEWALLEMPs">
+            <EntityTypeMapping TypeName="AccetManagementModel.RPTVIEWALLEMP">
+              <MappingFragment StoreEntitySet="RPTVIEWALLEMP">
+                <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EMPSTATUSNAME" ColumnName="EMPSTATUSNAME" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="MOBILEPHONE" ColumnName="MOBILEPHONE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEIMAGEs">
+            <EntityTypeMapping TypeName="AccetManagementModel.EMPLOYEEIMAGE">
+              <MappingFragment StoreEntitySet="EMPLOYEEIMAGE">
+                <ScalarProperty Name="IMAGEID" ColumnName="IMAGEID" />
+                <ScalarProperty Name="EMPIMAGEID" ColumnName="EMPIMAGEID" />
+                <ScalarProperty Name="FILEPATH" ColumnName="FILEPATH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

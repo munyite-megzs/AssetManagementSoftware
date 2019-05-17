@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AccetManagementModelStoreContainer" CdmEntityContainer="AccetManagementEntities">
+    <EntitySetMapping Name="ASSETs">
+      <EntityTypeMapping TypeName="AccetManagementModel.ASSET">
+        <MappingFragment StoreEntitySet="ASSET">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="ASSETTYPEID" ColumnName="ASSETTYPEID" />
+          <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+          <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+          <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+          <ScalarProperty Name="CONDITIONID" ColumnName="CONDITIONID" />
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+          <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="ASSETIMAGEID" ColumnName="ASSETIMAGEID" />
+          <ScalarProperty Name="CHECKOUTDATE" ColumnName="CHECKOUTDATE" />
+          <ScalarProperty Name="CHECKOUTCOMMENT" ColumnName="CHECKOUTCOMMENT" />
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+          <ScalarProperty Name="RECEIVEDDATE" ColumnName="RECEIVEDDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASSETIMAGEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.ASSETIMAGE">
+        <MappingFragment StoreEntitySet="ASSETIMAGE">
+          <ScalarProperty Name="ASSETIMAGEID" ColumnName="ASSETIMAGEID" />
+          <ScalarProperty Name="ASSETID" ColumnName="ASSETID" />
+          <ScalarProperty Name="Filepath" ColumnName="Filepath" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASSETTYPEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.ASSETTYPE">
+        <MappingFragment StoreEntitySet="ASSETTYPE">
+          <ScalarProperty Name="ASSETTYPE1" ColumnName="ASSETTYPE" />
+          <ScalarProperty Name="ASSETTYPEID" ColumnName="ASSETTYPEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ATTATCHMENTs">
+      <EntityTypeMapping TypeName="AccetManagementModel.ATTATCHMENT">
+        <MappingFragment StoreEntitySet="ATTATCHMENT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="FILEPATH" ColumnName="FILEPATH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHECKOUTINs">
+      <EntityTypeMapping TypeName="AccetManagementModel.CHECKOUTIN">
+        <MappingFragment StoreEntitySet="CHECKOUTIN">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+          <ScalarProperty Name="CHECKOUTDATE" ColumnName="CHECKOUTDATE" />
+          <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+          <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="CHECKINDATE" ColumnName="CHECKINDATE" />
+          <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+          <ScalarProperty Name="COMPNAME" ColumnName="COMPNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONDITIONs">
+      <EntityTypeMapping TypeName="AccetManagementModel.CONDITION">
+        <MappingFragment StoreEntitySet="CONDITION">
+          <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+          <ScalarProperty Name="CONDITIONID" ColumnName="CONDITIONID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depreciations">
+      <EntityTypeMapping TypeName="AccetManagementModel.Depreciation">
+        <MappingFragment StoreEntitySet="Depreciation">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DepresiationName" ColumnName="DepresiationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEESTATUS">
+      <EntityTypeMapping TypeName="AccetManagementModel.EMPLOYEESTATU">
+        <MappingFragment StoreEntitySet="EMPLOYEESTATUS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMPSTATUSNAME" ColumnName="EMPSTATUSNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEETABLEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.EMPLOYEETABLE">
+        <MappingFragment StoreEntitySet="EMPLOYEETABLE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+          <ScalarProperty Name="FNAME" ColumnName="FNAME" />
+          <ScalarProperty Name="LNAME" ColumnName="LNAME" />
+          <ScalarProperty Name="WORKPHONE" ColumnName="WORKPHONE" />
+          <ScalarProperty Name="MOBILEPHONE" ColumnName="MOBILEPHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+          <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+          <ScalarProperty Name="TITLEID" ColumnName="TITLEID" />
+          <ScalarProperty Name="IMAGEID" ColumnName="IMAGEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FINANCEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.FINANCE">
+        <MappingFragment StoreEntitySet="FINANCE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="VENDORNO" ColumnName="VENDORNO" />
+          <ScalarProperty Name="PONO" ColumnName="PONO" />
+          <ScalarProperty Name="RECOVERYPERIOD" ColumnName="RECOVERYPERIOD" />
+          <ScalarProperty Name="PURCHASEPRICE" ColumnName="PURCHASEPRICE" />
+          <ScalarProperty Name="MARKETVALUE" ColumnName="MARKETVALUE" />
+          <ScalarProperty Name="SCRAPEVALUE" ColumnName="SCRAPEVALUE" />
+          <ScalarProperty Name="DEPRECIATIONID" ColumnName="DEPRECIATIONID" />
+          <ScalarProperty Name="PURCHASEDATE" ColumnName="PURCHASEDATE" />
+          <ScalarProperty Name="INSERVICEDATE" ColumnName="INSERVICEDATE" />
+          <ScalarProperty Name="WARRANTYEND" ColumnName="WARRANTYEND" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOCATIONs">
+      <EntityTypeMapping TypeName="AccetManagementModel.LOCATION">
+        <MappingFragment StoreEntitySet="LOCATION">
+          <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+          <ScalarProperty Name="LOCATIONID" ColumnName="LOCATIONID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORGANIZATIONGROUPs">
+      <EntityTypeMapping TypeName="AccetManagementModel.ORGANIZATIONGROUP">
+        <MappingFragment StoreEntitySet="ORGANIZATIONGROUP">
+          <ScalarProperty Name="GROUPNAME" ColumnName="GROUPNAME" />
+          <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORGANIZATIONROLEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.ORGANIZATIONROLE">
+        <MappingFragment StoreEntitySet="ORGANIZATIONROLE">
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="TITLEID" ColumnName="TITLEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICETABLEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.SERVICETABLE">
+        <MappingFragment StoreEntitySet="SERVICETABLE">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="LABORCOST" ColumnName="LABORCOST" />
+          <ScalarProperty Name="PARTSCOST" ColumnName="PARTSCOST" />
+          <ScalarProperty Name="TAX" ColumnName="TAX" />
+          <ScalarProperty Name="COMPLETIONDATE" ColumnName="COMPLETIONDATE" />
+          <ScalarProperty Name="NEXTDUEDATE" ColumnName="NEXTDUEDATE" />
+          <ScalarProperty Name="SERVICEDBY" ColumnName="SERVICEDBY" />
+          <ScalarProperty Name="SERVICETYPEID" ColumnName="SERVICETYPEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICETYPEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.SERVICETYPE">
+        <MappingFragment StoreEntitySet="SERVICETYPE">
+          <ScalarProperty Name="SERVICENAME" ColumnName="SERVICENAME" />
+          <ScalarProperty Name="SERVICETYPEID" ColumnName="SERVICETYPEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATUS">
+      <EntityTypeMapping TypeName="AccetManagementModel.STATUS">
+        <MappingFragment StoreEntitySet="STATUS">
+          <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+          <ScalarProperty Name="STATUSID" ColumnName="STATUSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENDORs">
+      <EntityTypeMapping TypeName="AccetManagementModel.VENDOR">
+        <MappingFragment StoreEntitySet="VENDOR">
+          <ScalarProperty Name="VENDORNAME" ColumnName="VENDORNAME" />
+          <ScalarProperty Name="VENDORNO" ColumnName="VENDORNO" />
+          <ScalarProperty Name="PHONENO" ColumnName="PHONENO" />
+          <ScalarProperty Name="WEBSITE" ColumnName="WEBSITE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CONTACTNAME" ColumnName="CONTACTNAME" />
+          <ScalarProperty Name="POSTALADDRESS" ColumnName="POSTALADDRESS" />
+          <ScalarProperty Name="TOWN" ColumnName="TOWN" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RPTALLASSETS">
+      <EntityTypeMapping TypeName="AccetManagementModel.RPTALLASSET">
+        <MappingFragment StoreEntitySet="RPTALLASSETS">
+          <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+          <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+          <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+          <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+          <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RPTASSIGNEDALLASSETS">
+      <EntityTypeMapping TypeName="AccetManagementModel.RPTASSIGNEDALLASSET">
+        <MappingFragment StoreEntitySet="RPTASSIGNEDALLASSETS">
+          <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+          <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+          <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+          <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+          <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RPTUNASSIGNEDALLASSETS">
+      <EntityTypeMapping TypeName="AccetManagementModel.RPTUNASSIGNEDALLASSET">
+        <MappingFragment StoreEntitySet="RPTUNASSIGNEDALLASSETS">
+          <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+          <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+          <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+          <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+          <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEWALLASSETS">
+      <EntityTypeMapping TypeName="AccetManagementModel.VIEWALLASSET">
+        <MappingFragment StoreEntitySet="VIEWALLASSETS">
+          <ScalarProperty Name="ASSETTYPE" ColumnName="ASSETTYPE" />
+          <ScalarProperty Name="STATUSNAME" ColumnName="STATUSNAME" />
+          <ScalarProperty Name="LOCATIONNAME" ColumnName="LOCATIONNAME" />
+          <ScalarProperty Name="CONDITIONNAME" ColumnName="CONDITIONNAME" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="SERIALNUMBER" ColumnName="SERIALNUMBER" />
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+          <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEWALLEMPs">
+      <EntityTypeMapping TypeName="AccetManagementModel.VIEWALLEMP">
+        <MappingFragment StoreEntitySet="VIEWALLEMP">
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="MOBILEPHONE" ColumnName="MOBILEPHONE" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="EMPSTATUSNAME" ColumnName="EMPSTATUSNAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEWCHECKOUTs">
+      <EntityTypeMapping TypeName="AccetManagementModel.VIEWCHECKOUT">
+        <MappingFragment StoreEntitySet="VIEWCHECKOUT">
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="ADDITIONALINFORMATION" ColumnName="ADDITIONALINFORMATION" />
+          <ScalarProperty Name="FULLDESCRIPTION" ColumnName="FULLDESCRIPTION" />
+          <ScalarProperty Name="TIMESTAMP" ColumnName="TIMESTAMP" />
+          <ScalarProperty Name="COMPUTERNAME" ColumnName="COMPUTERNAME" />
+          <ScalarProperty Name="PERSONALNO" ColumnName="PERSONALNO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEWCHECKOUTsearches">
+      <EntityTypeMapping TypeName="AccetManagementModel.VIEWCHECKOUTsearch">
+        <MappingFragment StoreEntitySet="VIEWCHECKOUTsearch">
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="ADDITIONALINFORMATION" ColumnName="ADDITIONALINFORMATION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEWEMPCHECKOUTLISTs">
+      <EntityTypeMapping TypeName="AccetManagementModel.VIEWEMPCHECKOUTLIST">
+        <MappingFragment StoreEntitySet="VIEWEMPCHECKOUTLIST">
+          <ScalarProperty Name="ASSETNO" ColumnName="ASSETNO" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="CHECKOUTDATE" ColumnName="CHECKOUTDATE" />
+          <ScalarProperty Name="DUEDATE" ColumnName="DUEDATE" />
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RPTVIEWALLEMPs">
+      <EntityTypeMapping TypeName="AccetManagementModel.RPTVIEWALLEMP">
+        <MappingFragment StoreEntitySet="RPTVIEWALLEMP">
+          <ScalarProperty Name="EMPNAME" ColumnName="EMPNAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EMPSTATUSNAME" ColumnName="EMPSTATUSNAME" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="MOBILEPHONE" ColumnName="MOBILEPHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="EMPID" ColumnName="EMPID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEIMAGEs">
+      <EntityTypeMapping TypeName="AccetManagementModel.EMPLOYEEIMAGE">
+        <MappingFragment StoreEntitySet="EMPLOYEEIMAGE">
+          <ScalarProperty Name="IMAGEID" ColumnName="IMAGEID" />
+          <ScalarProperty Name="EMPIMAGEID" ColumnName="EMPIMAGEID" />
+          <ScalarProperty Name="FILEPATH" ColumnName="FILEPATH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

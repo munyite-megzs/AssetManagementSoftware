@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AccetManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ASSET">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETTYPEID" Type="Int32" Nullable="false" />
+    <Property Name="LOCATIONID" Type="Int32" Nullable="false" />
+    <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUSID" Type="Int32" Nullable="false" />
+    <Property Name="CONDITIONID" Type="Int32" Nullable="false" />
+    <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETIMAGEID" Type="Int32" Nullable="false" />
+    <Property Name="CHECKOUTDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CHECKOUTCOMMENT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RECEIVEDDATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ASSETIMAGE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ASSETIMAGEID" Type="Int32" Nullable="false" />
+    <Property Name="ASSETID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Filepath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ASSETTYPE">
+    <Key>
+      <PropertyRef Name="ASSETTYPEID" />
+    </Key>
+    <Property Name="ASSETTYPE1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETTYPEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ATTATCHMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FILEPATH" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHECKOUTIN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CHECKOUTDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="STATUSID" Type="Int32" Nullable="false" />
+    <Property Name="LOCATIONID" Type="Int32" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CHECKINDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="COMPNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONDITION">
+    <Key>
+      <PropertyRef Name="CONDITIONID" />
+    </Key>
+    <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONDITIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Depreciation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepresiationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEESTATU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPSTATUSNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEETABLE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORKPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOBILEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUSID" Type="Int32" Nullable="false" />
+    <Property Name="GROUPID" Type="Int32" Nullable="false" />
+    <Property Name="TITLEID" Type="Int32" Nullable="false" />
+    <Property Name="IMAGEID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FINANCE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="VENDORNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PONO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RECOVERYPERIOD" Type="Int32" Nullable="false" />
+    <Property Name="PURCHASEPRICE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="MARKETVALUE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SCRAPEVALUE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DEPRECIATIONID" Type="Int32" Nullable="false" />
+    <Property Name="PURCHASEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="INSERVICEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WARRANTYEND" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="LOCATION">
+    <Key>
+      <PropertyRef Name="LOCATIONID" />
+    </Key>
+    <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOCATIONID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ORGANIZATIONGROUP">
+    <Key>
+      <PropertyRef Name="GROUPID" />
+    </Key>
+    <Property Name="GROUPNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GROUPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ORGANIZATIONROLE">
+    <Key>
+      <PropertyRef Name="TITLEID" />
+    </Key>
+    <Property Name="TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TITLEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="SERVICETABLE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LABORCOST" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PARTSCOST" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TAX" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="COMPLETIONDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NEXTDUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="SERVICEDBY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SERVICETYPEID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SERVICETYPE">
+    <Key>
+      <PropertyRef Name="SERVICETYPEID" />
+    </Key>
+    <Property Name="SERVICENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SERVICETYPEID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STATUS">
+    <Key>
+      <PropertyRef Name="STATUSID" />
+    </Key>
+    <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="VENDOR">
+    <Key>
+      <PropertyRef Name="VENDORNO" />
+    </Key>
+    <Property Name="VENDORNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VENDORNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PHONENO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WEBSITE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTACTNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POSTALADDRESS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TOWN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COUNTRY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RPTALLASSET">
+    <Key>
+      <PropertyRef Name="ASSETTYPE" />
+      <PropertyRef Name="STATUSNAME" />
+      <PropertyRef Name="LOCATIONNAME" />
+      <PropertyRef Name="CONDITIONNAME" />
+      <PropertyRef Name="ASSETNO" />
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="MANUFACTURER" />
+      <PropertyRef Name="BRAND" />
+      <PropertyRef Name="SERIALNUMBER" />
+      <PropertyRef Name="EMPNAME" />
+      <PropertyRef Name="DUEDATE" />
+      <PropertyRef Name="NOTES" />
+    </Key>
+    <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RPTASSIGNEDALLASSET">
+    <Key>
+      <PropertyRef Name="ASSETTYPE" />
+      <PropertyRef Name="STATUSNAME" />
+      <PropertyRef Name="LOCATIONNAME" />
+      <PropertyRef Name="CONDITIONNAME" />
+      <PropertyRef Name="ASSETNO" />
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="MANUFACTURER" />
+      <PropertyRef Name="BRAND" />
+      <PropertyRef Name="SERIALNUMBER" />
+      <PropertyRef Name="EMPNAME" />
+      <PropertyRef Name="DUEDATE" />
+      <PropertyRef Name="NOTES" />
+    </Key>
+    <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RPTUNASSIGNEDALLASSET">
+    <Key>
+      <PropertyRef Name="ASSETTYPE" />
+      <PropertyRef Name="STATUSNAME" />
+      <PropertyRef Name="LOCATIONNAME" />
+      <PropertyRef Name="CONDITIONNAME" />
+      <PropertyRef Name="ASSETNO" />
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="MANUFACTURER" />
+      <PropertyRef Name="BRAND" />
+      <PropertyRef Name="SERIALNUMBER" />
+      <PropertyRef Name="EMPNAME" />
+      <PropertyRef Name="DUEDATE" />
+      <PropertyRef Name="NOTES" />
+    </Key>
+    <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VIEWALLASSET">
+    <Key>
+      <PropertyRef Name="ASSETTYPE" />
+      <PropertyRef Name="STATUSNAME" />
+      <PropertyRef Name="LOCATIONNAME" />
+      <PropertyRef Name="CONDITIONNAME" />
+      <PropertyRef Name="ASSETNO" />
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="MANUFACTURER" />
+      <PropertyRef Name="BRAND" />
+      <PropertyRef Name="SERIALNUMBER" />
+      <PropertyRef Name="EMPNAME" />
+      <PropertyRef Name="DUEDATE" />
+      <PropertyRef Name="NOTES" />
+    </Key>
+    <Property Name="ASSETTYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUSNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOCATIONNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONDITIONNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SERIALNUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NOTES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VIEWALLEMP">
+    <Key>
+      <PropertyRef Name="EMPID" />
+      <PropertyRef Name="EMAIL" />
+      <PropertyRef Name="MOBILEPHONE" />
+      <PropertyRef Name="TITLE" />
+      <PropertyRef Name="EMPSTATUSNAME" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EMPNAME" />
+    </Key>
+    <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOBILEPHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPSTATUSNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EMPNAME" Type="String" MaxLength="201" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VIEWCHECKOUT">
+    <Key>
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="ASSETNO" />
+      <PropertyRef Name="FULLDESCRIPTION" />
+      <PropertyRef Name="TIMESTAMP" />
+      <PropertyRef Name="COMPUTERNAME" />
+      <PropertyRef Name="PERSONALNO" />
+    </Key>
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ADDITIONALINFORMATION" Type="String" MaxLength="179" FixedLength="false" Unicode="false" />
+    <Property Name="FULLDESCRIPTION" Type="String" MaxLength="377" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TIMESTAMP" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="COMPUTERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PERSONALNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VIEWCHECKOUTsearch">
+    <Key>
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="ASSETNO" />
+    </Key>
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ADDITIONALINFORMATION" Type="String" MaxLength="179" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VIEWEMPCHECKOUTLIST">
+    <Key>
+      <PropertyRef Name="ASSETNO" />
+      <PropertyRef Name="DESCRIPTION" />
+      <PropertyRef Name="CHECKOUTDATE" />
+      <PropertyRef Name="DUEDATE" />
+      <PropertyRef Name="EMPID" />
+    </Key>
+    <Property Name="ASSETNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CHECKOUTDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DUEDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EMPID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="AccetManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ASSETs" EntityType="Self.ASSET" />
+    <EntitySet Name="ASSETIMAGEs" EntityType="Self.ASSETIMAGE" />
+    <EntitySet Name="ASSETTYPEs" EntityType="Self.ASSETTYPE" />
+    <EntitySet Name="ATTATCHMENTs" EntityType="Self.ATTATCHMENT" />
+    <EntitySet Name="CHECKOUTINs" EntityType="Self.CHECKOUTIN" />
+    <EntitySet Name="CONDITIONs" EntityType="Self.CONDITION" />
+    <EntitySet Name="Depreciations" EntityType="Self.Depreciation" />
+    <EntitySet Name="EMPLOYEESTATUS" EntityType="Self.EMPLOYEESTATU" />
+    <EntitySet Name="EMPLOYEETABLEs" EntityType="Self.EMPLOYEETABLE" />
+    <EntitySet Name="FINANCEs" EntityType="Self.FINANCE" />
+    <EntitySet Name="LOCATIONs" EntityType="Self.LOCATION" />
+    <EntitySet Name="ORGANIZATIONGROUPs" EntityType="Self.ORGANIZATIONGROUP" />
+    <EntitySet Name="ORGANIZATIONROLEs" EntityType="Self.ORGANIZATIONROLE" />
+    <EntitySet Name="SERVICETABLEs" EntityType="Self.SERVICETABLE" />
+    <EntitySet Name="SERVICETYPEs" EntityType="Self.SERVICETYPE" />
+    <EntitySet Name="STATUS" EntityType="Self.STATUS" />
+    <EntitySet Name="VENDORs" EntityType="Self.VENDOR" />
+    <EntitySet Name="RPTALLASSETS" EntityType="Self.RPTALLASSET" />
+    <EntitySet Name="RPTASSIGNEDALLASSETS" EntityType="Self.RPTASSIGNEDALLASSET" />
+    <EntitySet Name="RPTUNASSIGNEDALLASSETS" EntityType="Self.RPTUNASSIGNEDALLASSET" />
+    <EntitySet Name="VIEWALLASSETS" EntityType="Self.VIEWALLASSET" />
+    <EntitySet Name="VIEWALLEMPs" EntityType="Self.VIEWALLEMP" />
+    <EntitySet Name="VIEWCHECKOUTs" EntityType="Self.VIEWCHECKOUT" />
+    <EntitySet Name="VIEWCHECKOUTsearches" EntityType="Self.VIEWCHECKOUTsearch" />
+    <EntitySet Name="VIEWEMPCHECKOUTLISTs" EntityType="Self.VIEWEMPCHECKOUTLIST" />
+    <EntitySet Name="RPTVIEWALLEMPs" EntityType="AccetManagementModel.RPTVIEWALLEMP" />
+    <EntitySet Name="EMPLOYEEIMAGEs" EntityType="AccetManagementModel.EMPLOYEEIMAGE" />
+  </EntityContainer>
+  <EntityType Name="RPTVIEWALLEMP">
+    <Key>
+      <PropertyRef Name="EMPID" />
+      <PropertyRef Name="EMAIL" />
+      <PropertyRef Name="MOBILEPHONE" />
+      <PropertyRef Name="TITLE" />
+      <PropertyRef Name="EMPSTATUSNAME" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EMPNAME" />
+    </Key>
+    <Property Name="EMPID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MOBILEPHONE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TITLE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EMPSTATUSNAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EMPNAME" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEEIMAGE">
+    <Key>
+      <PropertyRef Name="IMAGEID" />
+    </Key>
+    <Property Name="FILEPATH" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EMPIMAGEID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IMAGEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>
